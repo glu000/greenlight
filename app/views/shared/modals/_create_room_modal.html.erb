@@ -67,6 +67,12 @@
               </label>
             <% end %>
 
+	    <label class="custom-switch pl-0 mt-3 mb-3 w-100 text-left d-inline-block">
+              <span class="custom-switch-description"><%= t("modal.room_settings.allow_recording")%></span>
+              <%= f.check_box :allow_recording, class: "custom-switch-input", checked: false %>
+              <span class="custom-switch-indicator float-right cursor-pointer"></span>
+            </label>
+
             <% if Rails.configuration.room_features.include? "all-join-moderator" %>
               <label class="custom-switch pl-0 mt-3 mb-3 w-100 text-left d-inline-block">
                 <span class="custom-switch-description"><%= t("modal.room_settings.join_moderator")%></span>
