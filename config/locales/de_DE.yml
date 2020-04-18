@@ -369,6 +369,7 @@ de_DE:
       update: Raum aktualisieren
       client: Client auswählen
       join_moderator: Alle Nutzer nehmen als Moderator teil
+      allow_recording: Aufzeichnung erlauben
       mute: Teilnehmer beim Betreten stummschalten
       require_approval: Freigabe durch Moderator bevor der Raum betreten werden kann
       start: Jeder Teilnehmer kann das Meeting starten
