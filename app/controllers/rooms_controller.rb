@@ -164,7 +164,7 @@ class RoomsController < ApplicationController
     @room_settings = JSON.parse(@room[:room_settings])
     opts[:mute_on_start] = room_setting_with_config("muteOnStart")
     opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
-        opts[:allow_recording] = room_settings["allowRecording"]
+    opts[:allow_recording] = room_settings["allowRecording"]
 
     begin
       redirect_to join_path(@room, current_user.name, opts, current_user.uid)
