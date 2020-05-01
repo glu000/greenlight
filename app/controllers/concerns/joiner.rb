@@ -49,12 +49,13 @@ module Joiner
 
   def join_room(opts)
     @room_settings = JSON.parse(@room[:room_settings])
+    my_room_settings = JSON.parse(@room[:room_settings])
 
     if room_running?(@room.bbb_id) || @room.owned_by?(current_user) || room_setting_with_config("anyoneCanStart")
 
       # Determine if the user needs to join as a moderator.
       opts[:user_is_moderator] = @room.owned_by?(current_user) || room_setting_with_config("joinModerator") || @shared_room
-      opts[:allow_recording] = room_settings["allowRecording"]
+      opts[:allow_recording] = my_room_settings["allowRecording"]
       opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
       opts[:mute_on_start] = room_setting_with_config("muteOnStart")
 
