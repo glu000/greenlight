@@ -75,11 +75,22 @@ module BbbServer
       "meta_bbb-origin-server-name": options[:host]
     }
 
+    if (!options[:upload_file].blank?)
+       fullpath = "http://hkkm.org/b/presentation/" + ((room.name).clone).gsub(" ", "_") + "~_" + options[:upload_file]
+       modules = BigBlueButton::BigBlueButtonModules.new
+       modules.add_presentation(:url, fullpath)
+    end
+
     create_options[:guestPolicy] = "ASK_MODERATOR" if options[:require_moderator_approval]
 
     # Send the create request.
     begin
-      meeting = bbb_server.create_meeting(room.name, room.bbb_id, create_options)
+      if (modules)
+         meeting = bbb_server.create_meeting(room.name, room.bbb_id, create_options, modules)
+      else
+         meeting = bbb_server.create_meeting(room.name, room.bbb_id, create_options)
+      end
+
       # Update session info.
       unless meeting[:messageKey] == 'duplicateWarning'
        room.update_attributes(sessions: room.sessions + 1,
