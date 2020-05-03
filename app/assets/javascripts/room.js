@@ -221,14 +221,14 @@ function updateCurrentSettings(settings_path){
 
       if(uploadFile){
         $("#create-room-upload-file").text(uploadFile)
-        $("#room_upload_filename").val(uploadFile)
+        $("#upload_filename").val(uploadFile)
       } else {
         $("#create-room-upload-file").text(getLocalizedString("modal.create_room.upload_file_placeholder"))
-        $("#room_upload_filename").val(null)
+        $("#upload_filename").val(null)
       }
     } else {
-        $("#create-room-upload-file").text(getLocalizedString("modal.create_room.upload_file_placeholder"))
-        $("#room_upload_filename").val(null)
+      $("#create-room-upload-file").text(getLocalizedString("modal.create_room.upload_file_placeholder"))
+      $("#upload_filename").val(null)
     }
     $("#delete_file").val("")
 
