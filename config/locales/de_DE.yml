@@ -346,6 +346,7 @@ de_DE:
       not_blank: Der Rollenname darf nicht leer sein.
       title: Neue Rolle erstellen
     create_room:
+      upload_file_placeholder: Standard-Präsentation verwenden (Whiteboard)
       access_code: Zugangscode
       access_code_placeholder: Generieren eines optionalen Raumzugangscodes
       auto_join: Automatisch dem Raum beitreten
