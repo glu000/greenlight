@@ -76,8 +76,8 @@ module BbbServer
     }
 
     if (!options[:upload_file].blank?)
-        logger.error "#{request.protocol}#{request.host_with_port}#{request.fullpath}";
-       fullpath = "http://hkkm.org/b/presentation/" + ((room.name).clone).gsub(" ", "_") + "~_" + options[:upload_file]
+       fullpath = "#{request.protocol}#{request.host_with_port}/presentation/" + ((room.name).clone).gsub(" ", "_") + "~_" + options[:upload_file]
+       logger.error fullpath
        modules = BigBlueButton::BigBlueButtonModules.new
        modules.add_presentation(:url, fullpath)
     end
