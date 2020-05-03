@@ -213,9 +213,6 @@ class RoomsController < ApplicationController
         filepath = Rails.root.join('public', 'presentation', room_name + '~_*')
         Dir.glob(filepath).each { |file| File.delete(file)}
       elsif upload_filename && upload_file
-        logger.error upload_filename
-        logger.error upload_file
-
         filepath = Rails.root.join('public', 'presentation', room_name + '~_*')
         Dir.glob(filepath).each { |file| File.delete(file)}
         path = Rails.root.join('public', 'presentation')
@@ -234,7 +231,6 @@ class RoomsController < ApplicationController
       flash[:success] = I18n.t("room.update_settings_success")
     rescue => e
       logger.error "Support: Error in updating room settings: #{e}"
-      logger.error room_settings_string
       flash[:alert] = I18n.t("room.update_settings_error")
     end
 
