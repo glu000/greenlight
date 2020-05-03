@@ -51,7 +51,7 @@ class RoomsController < ApplicationController
     upload_filename = room_params[:upload_filename]
     if upload_filename
        upload_filename.gsub(' ', '_')
-     end
+    end
 
     if upload_file
       room_name = ((@room.name).clone).gsub(" ", "_")
