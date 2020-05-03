@@ -47,7 +47,7 @@
               <span id="file_clicker" class="input-icon-addon allow-icon-click cursor-pointer" onclick="upload_it()">
                 <i class="fas fa-file-alt"></i>
               </span>
-              <%= f.label :upload_file, t("modal.create_room.upload_file_placeholder"), id: "create-room-upload-file", class: "form-control", :onclick => "upload_it()"
+              <%= f.label :upload_file, t("modal.create_room.upload_file_placeholder"), id: "create-room-upload-file", class: "form-control", :onclick => "upload_it()" %>
               <span style="display: none;">
                 <%= f.file_field :upload_file, :onchange=>"uploadFile()", id: "upload_file" %>
                 <%= f.hidden_field :upload_filename, :value => "", id: "upload_filename" %>
