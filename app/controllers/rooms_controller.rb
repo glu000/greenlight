@@ -213,6 +213,9 @@ class RoomsController < ApplicationController
         filepath = Rails.root.join('public', 'presentation', room_name + '~_*')
         Dir.glob(filepath).each { |file| File.delete(file)}
       elsif upload_filename && upload_file
+        logger.error upload_filename
+        logger.error upload_file
+
         filepath = Rails.root.join('public', 'presentation', room_name + '~_*')
         Dir.glob(filepath).each { |file| File.delete(file)}
         path = Rails.root.join('public', 'presentation')
