@@ -77,7 +77,6 @@ module BbbServer
 
     if (!options[:upload_file].blank?)
        fullpath = "#{request.protocol}#{request.host_with_port}/presentation/" + ((room.name).clone).gsub(" ", "_") + "~_" + options[:upload_file]
-       logger.error fullpath
        modules = BigBlueButton::BigBlueButtonModules.new
        modules.add_presentation(:url, fullpath)
     end
