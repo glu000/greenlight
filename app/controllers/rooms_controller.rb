@@ -229,6 +229,7 @@ class RoomsController < ApplicationController
       flash[:success] = I18n.t("room.update_settings_success")
     rescue => e
       logger.error "Support: Error in updating room settings: #{e}"
+      logger.error room_settings_string
       flash[:alert] = I18n.t("room.update_settings_error")
     end
 
