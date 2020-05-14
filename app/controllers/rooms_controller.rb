@@ -53,9 +53,8 @@ class RoomsController < ApplicationController
        upload_filename.gsub(' ', '_')
     end
 
-      logger.error ("room_name: " + room_name)
-      logger.error ("upload_file: " + upload_file)
       logger.error ("upload_filename: " + upload_filename)
+      logger.error ("upload_file: " + upload_file)
 
     if upload_file
       room_name = ((@room.name).clone).gsub(" ", "_")
