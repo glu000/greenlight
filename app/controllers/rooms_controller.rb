@@ -48,10 +48,7 @@ class RoomsController < ApplicationController
     @room.room_settings = create_room_settings_string(room_params)
 
     upload_file = room_params[:upload_file]
-    upload_filename = room_params[:upload_filename]
-    if upload_filename
-       upload_filename.gsub(' ', '_')
-    end
+    upload_filename = room_params[:upload_filename].gsub(' ', '_')
 
     if upload_file
       room_name = ((@room.name).clone).gsub(" ", "_")
