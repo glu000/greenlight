@@ -46,6 +46,9 @@ class RoomsController < ApplicationController
     @room = Room.new(name: room_params[:name], access_code: room_params[:access_code])
     @room.owner = current_user
     @room.room_settings = create_room_settings_string(room_params)
+    room_settings_string = create_room_settings_string(room_params)
+
+    logger.error ("Room Settings: " + room_settings_string)
 
       #upload_file = params[:room][:upload_file]
       #upload_filename = params[:room][:upload_filename].gsub(' ', '_')
