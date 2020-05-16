@@ -50,11 +50,11 @@ class RoomsController < ApplicationController
 
     logger.error ("Room Settings: " + room_settings_string)
 
-      #upload_file = params[:room][:upload_file]
-      #upload_filename = params[:room][:upload_filename].gsub(' ', '_')
+      upload_file = params[:room][:upload_file]
+      upload_filename = params[:room][:upload_filename].gsub(' ', '_')
 
-    upload_file = room_params[:upload_file]
-    upload_filename = room_params[:upload_filename]
+    #upload_file = room_params[:upload_file]
+    #upload_filename = room_params[:upload_filename]
 
     if upload_file
       room_name = ((@room.name).clone).gsub(" ", "_")
