@@ -163,7 +163,7 @@ function showCreateRoom(target) {
   })
 
   $("#create-room-upload-file").text(getLocalizedString("modal.create_room.upload_file_placeholder"))
-  $("#upload_filename").val(null)
+  $("#room_upload_filename").val(null)
   $("#delete_file").val("")
 }
 
