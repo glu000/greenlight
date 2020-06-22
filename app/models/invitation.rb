@@ -19,5 +19,6 @@
 class Invitation < ApplicationRecord
   has_secure_token :invite_token
 
-  scope :valid, -> { where(updated_at: (Time.now - 48.hours)..Time.now) }
+  # Dauer, wie lange eine Einladung gültig ist (token) Default: 48 Stunden - geändert auf eine Woche
+  scope :valid, -> { where(updated_at: (Time.now - 168.hours)..Time.now) }
 end
