@@ -55,12 +55,13 @@ module Joiner
 
       # Determine if the user needs to join as a moderator.
       opts[:user_is_moderator] = @room.owned_by?(current_user) || room_setting_with_config("joinModerator") || @shared_room
+      opts[:record] = record_meeting
       opts[:allow_recording] = my_room_settings["allowRecording"]
       opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
       opts[:mute_on_start] = room_setting_with_config("muteOnStart")
 
       opts[:upload_file] = my_room_settings["uploadFile"]
-      
+
       if current_user
         redirect_to join_path(@room, current_user.name, opts, current_user.uid)
       else
@@ -95,29 +96,6 @@ module Joiner
       host: request.host,
       recording_default_visibility: @settings.get_value("Default Recording Visibility") == "public"
     }
-  end
-
-  # Gets the room setting based on the option set in the room configuration
-  def room_setting_with_config(name)
-    config = case name
-    when "muteOnStart"
-      "Room Configuration Mute On Join"
-    when "requireModeratorApproval"
-      "Room Configuration Require Moderator"
-    when "joinModerator"
-      "Room Configuration All Join Moderator"
-    when "anyoneCanStart"
-      "Room Configuration Allow Any Start"
-    end
-
-    case @settings.get_value(config)
-    when "enabled"
-      true
-    when "optional"
-      @room_settings[name]
-    when "disabled"
-      false
-    end
   end
 
   private
