@@ -96,7 +96,7 @@ a {
 }
 
 .hintergrund {
-  background-image: url(asset_path('klartext-hintergrund.jpg'));
+  background-image: url(asset_path('hintergrund.jpg'));
   background-attachment: fixed;
   background-size: cover;
   padding-top: 20rem !important;
@@ -105,6 +105,11 @@ a {
 
 .weiss {
   color: white;
+  text-shadow: 3px 3px 3px black;
+}
+
+.rot {
+  color: darkred;
   text-shadow: 3px 3px 3px black;
 }
 
