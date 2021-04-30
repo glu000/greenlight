@@ -92,6 +92,19 @@ a {
   background-color: $background-color;
 }
 
+.hintergrund {
+  background-image: url(asset_path('background.png'));
+  background-attachment: fixed;
+  background-size: cover;
+  padding-top: 20rem !important;
+  padding-bottom: 20rem !important;
+}
+
+.weiss {
+  color: white;
+  text-shadow: 3px 3px 3px black;
+}
+
 .error-section {
   background-color: $error-background-color;
 }
