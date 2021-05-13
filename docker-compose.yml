@@ -23,7 +23,7 @@ services:
 # When using postgresql as the database
     links:
       - db
-    db:
+  db:
     image: postgres:13.2-alpine
     restart: unless-stopped
     ports:
