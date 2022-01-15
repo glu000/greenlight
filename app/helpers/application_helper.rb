@@ -135,6 +135,26 @@ module ApplicationHelper
   # Returns a more friendly/readable date time object
   def view_date(date)
     return "" if date.nil? # Handle invalid dates
-    local_time(date, "%b %d, %Y %-I:%M%P")
+    local_time(date, :default)
+  end
+
+  # Returns true if the user is allowed to record meetings
+  def perm_to_record_meeting
+    if recording_consent_required?
+      @settings.get_value("Room Configuration Recording") != "disabled" &&
+        current_user&.role&.get_permission("can_launch_recording")
+    else
+      current_user&.role&.get_permission("can_launch_recording")
+    end
+  end
+
+  # Returns true if protected recordings is enabled on BigBlueButton/Scalelite server
+  def protected_recording?(rec)
+    !rec[:protected].nil?
+  end
+
+  # Takes any expression and stringify it decoding any html charachter entity if found.
+  def html_entities_decode(expr)
+    CGI.unescapeHTML expr
   end
 end
