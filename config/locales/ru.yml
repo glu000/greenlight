@@ -25,11 +25,18 @@ ru:
         name: Имя
         password: Пароль
         password_confirmation: Подтверждение пароля
+        old_password: Старый пароль
     errors:
       models:
         user:
-          password: не соответствует требованиям сложности
-          confirmation: не совпадает с паролем
+          confirmation: не совпадает
+          attributes:
+            email:
+              invalid: некорректный формат email
+            password:
+              invalid: не соответствует требованиям сложности 
+              
+  
   administrator:
     site_settings:
       authentication:
@@ -328,7 +335,7 @@ ru:
     search:
       start: Искать...
   landing:
-    about: "%{href} это упрощенный веб интерфейс для вашего сервера веб конференций открытым исходным кодом BigBlueButton. Вы можете создавать свои собственные комнаты для проведения встреч или присоединяться к другим, используя короткую и удобную ссылку."
+    about: "%{href} — это простой веб-интерфейс для сервера веб-конференций с открытым исходным кодом BigBlueButton. Вы можете создавать свои собственные комнаты для проведения встреч или присоединяться к другим, используя короткую и удобную ссылку."
     welcome: Добро пожаловать в BigBlueButton.
     video: Ознакомьтесь с нашим учебником по использованию Greenlight
     upgrade: "Покажите мне, как обновить до 2.0!"
@@ -489,6 +496,13 @@ ru:
   password_empty_notice: Пароль не может быть пустым.
   password_reset_success: Пароль успешно сброшен.
   password_different_notice: Подтверждение пароля не совпадает.
+  old_password_incorrect: некорректен
+  password_complexity:
+    minimum_len: Не менее 8 символов
+    one_lower_case: Не менее 1 строчного символа
+    one_upper_case: Не менее 1 заглавного символа
+    one_digit: Не менее 1  цифры
+    one_sym: Не менее 1 специального символа
   provider:
     google: Google
     office365: Office 365
@@ -667,3 +681,5 @@ ru:
     signin: Пожалуйста войдте для доступа к Вашему аккаунту.
     title: Подтвердите Ваш электронный адрес email
     verification: Проверка
+  session:
+    expired: "Время сеанса истекло, пожалуйста, войдите в систему повторно."
