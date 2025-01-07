@@ -286,7 +286,8 @@ describe RoomsController, type: :controller do
 
       post :join, params: { room_uid: room, join_name: "Join Name" }, session: { moderator_access_code: "abcdef" }
 
-      expect(response).to redirect_to(join_path(room, "Join Name", { user_is_moderator: true }, response.cookies["guest_id"]))
+      expect(response).to redirect_to(join_path(room, "Join Name", { user_is_moderator: true },
+response.cookies["guest_id"]))
     end
 
     it "should render wait if meeting isn't running" do
@@ -427,7 +428,8 @@ describe RoomsController, type: :controller do
 
       post :join, params: { room_uid: room, join_name: "Join Name" }, session: { moderator_access_code: "abcdef" }
 
-      expect(response).to redirect_to(join_path(room, "Join Name", { user_is_moderator: true }, response.cookies["guest_id"]))
+      expect(response).to redirect_to(join_path(room, "Join Name", { user_is_moderator: true },
+response.cookies["guest_id"]))
     end
 
     it "should join the room as moderator if the user has the moderator_access code (and regular access code is set)" do
